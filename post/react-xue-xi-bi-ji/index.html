@@ -136,6 +136,28 @@ const dataSourceSelector = createSelector(getItems, getById, (items, byId) =&gt;
                                    
                                     <div class="mdui-divider mdui-m-t-2 mdui-m-b-2"></div>
                                     
+          
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'AT',
+  apikey: 'GLcRVRVFrEHw0RwUtuFnJLPR3VI94dSeiI0Jxhr0YJHgfWCs7NmJ1vf9LHH9uWbW',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
                                      <script src="https://xiesz.com/media/scripts/Valine.min.js"></script>
  <div class="comment"></div>
 
@@ -143,14 +165,8 @@ const dataSourceSelector = createSelector(getItems, getById, (items, byId) =&gt;
       new Valine({
             el: '.comment',
 
-            app_id: 'Eei7ovK2qnq1L1XRWLrdf2r8-gzGzoHsz',
 
 
-            app_key: 'FtV18kdicXebviPFTfhrau4h',
-
-
-            placeholder: '说出你想说的！',
-            
             path: window.location.pathname,
             pageSize: 30,
             avatar:'mm', 
