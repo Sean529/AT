@@ -51,18 +51,16 @@
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
                                     <div class="post-title  mdui-m-b-1">react 学习笔记</div>
                                     <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2019-12-01 17:30:41">2019-12-01 / 3 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><h3 id="表单">表单</h3>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>### 表单</p>
 <h4 id="对-ant-组件封装">对 ant 组件封装</h4>
 <p>将需要重复的内容封装成一个 build 组件，只需要传 meta 属性（meta 属性中包含组件需要的配置信息）即可。</p>
 <h3 id="router">router</h3>
-<p>比较好的设计模式，将页面中的关键字都放入 url 中，</p>
-<p>这样通过 url 就可以直接搜索到对应的东西，而不需要再打开页面进行搜索；</p>
-<p>状态不需要放在 store 中单独维护</p>
-<pre><code>/list/page?keyword=xxx
+<p>比较好的设计模式，将页面中的关键字都放入 url 中，这样通过 url 就可以直接搜索到对应的东西，而不需要再打开页面进行搜索；状态不需要放在 store 中单独维护</p>
+<pre><code class="language-javascript">/list/page?keyword=xxx
 </code></pre>
 <h3 id="store-模型设计">Store 模型设计</h3>
-<p>将数据扁平化，对之后查找和处理数据帮助非常大<br>
-<img src="https://xiesz.com/post-images/1575192703069.png" alt="" width="400"></p>
+<p>将数据扁平化，对之后查找和处理数据帮助非常大</p>
+<figure data-type="image" tabindex="1"><img src="https://qn.xiesz.com/AT/2019-12-23-033802.png?blog" alt="storeModal"></figure>
 <pre><code class="language-javascript">// 数据 初始化
 const initialState = {
   items: [], // 存放 id 的list
@@ -74,16 +72,16 @@ const initialState = {
   fetchListError: null, // error
   listNeedReload: false, // 重载
 };
-</code></pre>
-<pre><code class="language-javascript">// 接口 set 数据
+
+// 接口 set 数据
 const byId = {};
 const items = [];
 action.data.items.forEach(item =&gt; {
-	items.push(item.id);
-	byId[item.id] = item;
+  items.push(item.id);
+  byId[item.id] = item;
 });
-</code></pre>
-<pre><code class="language-javascript">// 页面 get 数据
+
+// 页面 get 数据
 const dataSourceSelector = createSelector(getItems, getById, (items, byId) =&gt; {
   console.log(&quot;reselect: get data source&quot;);
   if (!items) return [];
@@ -92,26 +90,36 @@ const dataSourceSelector = createSelector(getItems, getById, (items, byId) =&gt;
 </code></pre>
 <h3 id="生命周期-componentdidupdate">生命周期 componentDidUpdate</h3>
 <p>比较前一个属性与当前属性有没有发生变化，发生变化则执行数据的更新。</p>
-<pre><code class="language-javascript">  componentDidUpdate(prevProps) {
-    const page = parseInt(this.props.match.params.page || 1, 10);
-    const prevPage = parseInt(prevProps.match.params.page || 1, 10);
-    if (prevPage !== page &amp;&amp; !this.props.list.fetchListPending) {
-      this.fetchData(page);
-    }
+<pre><code class="language-javascript">componentDidUpdate(prevProps) {
+  const page = parseInt(this.props.match.params.page || 1, 10);
+  const prevPage = parseInt(prevProps.match.params.page || 1, 10);
+  if (prevPage !== page &amp;&amp; !this.props.list.fetchListPending) {
+    this.fetchData(page);
   }
+}
 </code></pre>
 <h3 id="内容页的加载与缓存">内容页的加载与缓存</h3>
 <h4 id="业务需求">业务需求</h4>
 <p>内容页和列表页的数据关系</p>
 <ol>
-<li>简单业务：列表页数据包含内容页的数据</li>
-<li>复杂业务：内容页数据需要额外获取</li>
-<li>内容页数据的缓存</li>
+<li>
+<p>简单业务：列表页数据包含内容页的数据</p>
+</li>
+<li>
+<p>复杂业务：内容页数据需要额外获取</p>
+</li>
+<li>
+<p>内容页数据的缓存</p>
+</li>
 </ol>
 <h4 id="逻辑思考">逻辑思考</h4>
 <ol>
-<li>内容页的数据通过 store 获取</li>
-<li>当 store 为空，请求接口获取，更新 store</li>
+<li>
+<p>内容页的数据通过 store 获取</p>
+</li>
+<li>
+<p>当 store 为空，请求接口获取，更新 store</p>
+</li>
 </ol>
 <h5 id="loading">loading</h5>
 <p>当 store 为空，发起接口请求时设置 loading 显示，接口请求成功后隐藏 loading</p>
