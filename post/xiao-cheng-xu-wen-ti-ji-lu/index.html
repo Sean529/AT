@@ -65,7 +65,7 @@
 </ol>
 <p>原因：顶部内容+分类+底部商品列表的高度正好是一屏高度（ip6 1334)，占满一屏所以无法吸顶。</p>
 <p>解决：将底部商品列表的高度设置为一屏高度，通过js获取屏幕高度，动态设置底部商品列表的高度。底部商品的高度+分类+顶部内容超过一屏，可以使页面滚动，执行 <code>wx.pageScrollTo</code> 方法才有效。在开发者工具中有效果应该是开发者工具的bug。</p>
-<h3 id="小程序-ios-兼容底部横向">小程序 iOS 兼容底部横向</h3>
+<h3 id="小程序-ios-兼容底部横线">小程序 iOS 兼容底部横线</h3>
 <p>时间：2019年12月21日</p>
 <p>问题：使用 <code>padding-bottom: constant(safe-area-inset-bottom); padding-bottom: env(safe-area-inset-bottom);</code> 页面依然没有被撑起</p>
 <p>描述：在需要设置安全距离的地方，添加 <code>class=&quot;safePadding&quot;</code> ，结果不起作用。</p>
