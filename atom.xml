@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiesz.com</id>
     <title>Autumn</title>
-    <updated>2019-12-23T04:41:45.897Z</updated>
+    <updated>2019-12-23T04:52:13.711Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiesz.com"/>
     <link rel="self" href="https://xiesz.com/atom.xml"/>
@@ -25,7 +25,7 @@
         <updated>2019-12-01T13:22:41.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[入二手 AirPods2 时的鉴定经验]]></title>
+        <title type="html"><![CDATA[鉴定二手 AirPods2]]></title>
         <id>https://xiesz.com/post/airpods2-zhen-wei-jian-ding</id>
         <link href="https://xiesz.com/post/airpods2-zhen-wei-jian-ding">
         </link>
