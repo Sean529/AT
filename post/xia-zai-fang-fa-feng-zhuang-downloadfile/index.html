@@ -3,7 +3,7 @@
         <head>
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
-        <title>小程序问题记录 | Autumn</title>
+        <title>下载方法封装（downloadFile） | Autumn</title>
         <link rel="stylesheet" href="https://xiesz.com/styles/main.css">
         <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
         <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
@@ -49,52 +49,38 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                                 <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
-                                    <div class="post-title  mdui-m-b-1">小程序问题记录</div>
-                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2019-12-23 11:19:21">2019-12-23 / 2 min read</div>
-                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><h3 id="页面滚动吸顶">页面滚动吸顶</h3>
-<p>时间：2019年12月21日</p>
-<p>问题：使用 <code>wx.pageScrollTo</code> 在开发者工具中页面可以按预期置顶和向下移动，但是在真机中页面无法移动。</p>
-<p>描述：</p>
-<ol>
-<li>
-<p>页面元素：页面顶部有内容，中间是分类，底部是商品列表。</p>
-</li>
-<li>
-<p>操作：滚动商品列表时，分类置顶。滚动商品列表时，执行 <code>wx.pageScrollTo</code> 方法，在开发者工具中可以吸顶，但是真机上无法完成吸顶。</p>
-</li>
-</ol>
-<p>原因：顶部内容+分类+底部商品列表的高度正好是一屏高度（ip6 1334)，占满一屏所以无法吸顶。</p>
-<p>解决：将底部商品列表的高度设置为一屏高度，通过js获取屏幕高度，动态设置底部商品列表的高度。底部商品的高度+分类+顶部内容超过一屏，可以使页面滚动，执行 <code>wx.pageScrollTo</code> 方法才有效。在开发者工具中有效果应该是开发者工具的bug。</p>
-<h3 id="小程序-ios-兼容底部横线1">小程序 iOS 兼容底部横线（1）</h3>
-<p>时间：2019年12月21日</p>
-<p>问题：使用 <code>padding-bottom: constant(safe-area-inset-bottom); padding-bottom: env(safe-area-inset-bottom);</code> 页面依然没有被撑起</p>
-<p>描述：在需要设置安全距离的地方，添加 <code>class=&quot;safePadding&quot;</code> ，结果不起作用。</p>
-<p>原因：检查元素发现 <code>padding-bottom</code> 被其他写有 <code>class</code> 的类覆盖了，导致添加的 <code>safePadding</code> 没有起作用。</p>
-<p>解决：给需要设置安全距离的 DOM 元素的 <code>class</code> 中添加 <code>padding-bottom</code> 代码，解决样式优先级。在 iOS 中测试正常。</p>
-<h3 id="小程序-ios-兼容底部横线代码示例">小程序 iOS 兼容底部横线（代码示例）</h3>
-<pre><code class="language-html">&lt;view class=&quot;container&quot;&gt;
-  &lt;view class=&quot;list&quot;&gt;&lt;/view&gt;
-&lt;/view&gt;
-</code></pre>
-<pre><code class="language-css">.container {
-	padding-bottom: env(safe-area-inset-bottom);
-}
-
-.list {
-	/* 循环列表，业务中底部有 98rpx 的购物车，设置 padding-bottom 避免元素被遮挡 */
-	padding-bottom: 98rpx;
-	box-sizing: border-box;
-}
-</code></pre>
+                                    <div class="post-title  mdui-m-b-1">下载方法封装（downloadFile）</div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="2019-12-24 13:49:51">2019-12-24 / 1 min read</div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><p>import { isEmpty, reduce, endsWith, isNil } from 'lodash'</p>
+<p>/**</p>
+<ul>
+<li>下载文件</li>
+<li>@param { String } url 访问地址</li>
+<li>@param { Object } params 参数<br>
+*/<br>
+export const downloadFile = (url, params = {}) =&gt; {<br>
+if (!isEmpty(params)) {<br>
+const queryStr = reduce(<br>
+params,<br>
+(ary, value, key) =&gt; {<br>
+return [...ary, <code>${encodeURIComponent(key)}=${encodeURIComponent(value)}</code>]<br>
+},<br>
+[]<br>
+).join('&amp;')<br>
+url = endsWith('url', '?') ? <code>${url}${queryStr}</code> : <code>${url}?${queryStr}</code><br>
+}<br>
+!isNil(window.location) &amp;&amp; (window.location.href = url)<br>
+}</li>
+</ul>
 </div>
                                     <div class="mdui-divider mdui-m-b-2"></div>
                                     <div class="mdui-row-xs-2 post-fenye">
                                        
-                                        <div class="mdui-col"> <div class="mdui-text-left"><a href="https://xiesz.com/post/xia-zai-fang-fa-feng-zhuang-downloadfile">下载方法封装（downloadFile）</a></div></div>
+                                        <div class="mdui-col"> </div>
                                         
 
                                         
-                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://xiesz.com/post/ru-he-xuan-ze-gong-si">如何选择公司</a></div> </div>
+                                        <div class="mdui-col"><div class="mdui-text-right "><a href="https://xiesz.com/post/xiao-cheng-xu-wen-ti-ji-lu">小程序问题记录</a></div> </div>
                                        
                                       </div>
                                    
