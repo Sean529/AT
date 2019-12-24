@@ -58,12 +58,12 @@
 <p>将需要重复的内容封装成一个 build 组件，只需要传 meta 属性（meta 属性中包含组件需要的配置信息）即可。</p>
 <h3 id="router">router</h3>
 <p>比较好的设计模式，将页面中的关键字都放入 url 中，这样通过 url 就可以直接搜索到对应的东西，而不需要再打开页面进行搜索；状态不需要放在 store 中单独维护</p>
-<pre><code>/list/page?keyword=xxx
+<pre><code class="language-code">/list/page?keyword=xxx
 </code></pre>
 <h3 id="store-模型设计">Store 模型设计</h3>
 <p>将数据扁平化，对之后查找和处理数据帮助非常大</p>
-<figure data-type="image" tabindex="1"><img src="https://qn.xiesz.com/AT/2019-12-23-033802.png?blog" alt="storeModal"></figure>
-<pre><code>// 数据 初始化
+<figure data-type="image" tabindex="1"><img src="https://qn.xiesz.com/AT/062901.png?blog" alt="store"></figure>
+<pre><code class="language-javascript">// 数据 初始化
 const initialState = {
   items: [], // 存放 id 的list
   page: 1,

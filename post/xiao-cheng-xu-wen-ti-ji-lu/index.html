@@ -74,17 +74,17 @@
 <p>原因：检查元素发现 <code>padding-bottom</code> 被其他写有 <code>class</code> 的类覆盖了，导致添加的 <code>safePadding</code> 没有起作用。</p>
 <p>解决：给需要设置安全距离的 DOM 元素的 <code>class</code> 中添加 <code>padding-bottom</code> 代码，解决样式优先级。在 iOS 中测试正常。</p>
 <h3 id="小程序-ios-兼容底部横线代码示例">小程序 iOS 兼容底部横线（代码示例）</h3>
-<pre><code>&lt;view class=&quot;container&quot;&gt;
+<pre><code class="language-html">&lt;view class=&quot;container&quot;&gt;
   &lt;view class=&quot;list&quot;&gt;&lt;/view&gt;
 &lt;/view&gt;
 </code></pre>
 <pre><code class="language-css">.container {
-	padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .list {
 	/* 循环列表，业务中底部有 98rpx 的购物车，设置 padding-bottom 避免元素被遮挡 */
-	padding-bottom: 98rpx;
+    padding-bottom: 98rpx;
 	box-sizing: border-box;
 }
 </code></pre>
