@@ -1,91 +1,96 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>小程序问题记录 | AT</title>
-<meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://xiesz.com/favicon.ico?v=1577169303417">
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://xiesz.com/favicon.ico?v=1577169317281">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://xiesz.com/styles/main.css">
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://xiesz.com">
-  <img class="avatar" src="https://xiesz.com/images/avatar.png?v=1577169303417" alt="">
-  </a>
-  <h1 class="site-title">
-    AT
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://xiesz.com">AT</a></h3>
   </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
   </div>
-</div>
+</nav>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              小程序问题记录
-            </h2>
-            <div class="post-info">
-              <span>
-                2019-12-23
-              </span>
-              <span>
-                2 min read
-              </span>
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>小程序问题记录</h1>
+            <p class="article-meta">
+              2019-12-23
               
-                <a href="https://xiesz.com/tag/5qwAN56LM" class="post-tag">
-                  # code
+                <a href="https://xiesz.com/tag/5qwAN56LM" class="badge success">
+                  code
                 </a>
               
-            </div>
+            </p>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>记录平时在小程序开发中遇到的问题，以及解决思路。</p>
+            <div class="post-content">
+              <p>记录平时在小程序开发中遇到的问题，以及解决思路。</p>
 <!-- more -->
 <h3 id="页面滚动吸顶">页面滚动吸顶</h3>
 <p>时间：2019年12月21日</p>
@@ -123,110 +128,152 @@
 }
 </code></pre>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E5%90%B8%E9%A1%B6">页面滚动吸顶</a></li>
-<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F-ios-%E5%85%BC%E5%AE%B9%E5%BA%95%E9%83%A8%E6%A8%AA%E7%BA%BF1">小程序 iOS 兼容底部横线（1）</a></li>
-<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F-ios-%E5%85%BC%E5%AE%B9%E5%BA%95%E9%83%A8%E6%A8%AA%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B">小程序 iOS 兼容底部横线（代码示例）</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
           </article>
         </div>
-
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://xiesz.com/post/ru-he-xuan-ze-gong-si">
-              <h3 class="post-title">
-                如何选择公司
-              </h3>
-            </a>
-          </div>
-        
-
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://xiesz.com/post/ru-he-xuan-ze-gong-si">
+                <h3 class="post-title">
+                  如何选择公司
+                </h3>
+              </a>
+            </div>
+          
+        </div>
         
           
 
           
-            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-
-<div id="disqus_thread"></div>
-
-<script>
-
-var options = {
-  shortname: 'AT',
-  apikey: 'GLcRVRVFrEHw0RwUtuFnJLPR3VI94dSeiI0Jxhr0YJHgfWCs7NmJ1vf9LHH9uWbW',
-}
-if ('') {
-  options.api = ''
-}
-var dsqjs = new DisqusJS(options)
-
-</script>
-
+            <div class="paper" data-aos="fade-in">
+              <div id="disqus_thread"></div>
+            </div>
           
         
+      </div>
 
-        <div class="site-footer">
-  <a href="https://github.com/XieShangZheng" target="_blank">Autumn</a> | <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备16047980号-5</a> | 
-  <a class="rss" href="https://xiesz.com/atom.xml" target="_blank">RSS</a>
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://xiesz.com/images/avatar.png?v=1577169317281" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://xiesz.com/post/xia-zai-fang-fa-feng-zhuang-downloadfile">下载方法封装（downloadFile）</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiesz.com/post/xiao-cheng-xu-wen-ti-ji-lu">小程序问题记录</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiesz.com/post/ru-he-xuan-ze-gong-si">如何选择公司</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiesz.com/post/airpods2-zhen-wei-jian-ding">鉴定二手 AirPods2</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiesz.com/post/react-xue-xi-bi-ji">react 学习笔记</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://xiesz.com/tag/5qwAN56LM" class="badge secondary">
+          code
+        </a>
+      
+        <a href="https://xiesz.com/tag/zHuxCB8Kx" class="badge secondary">
+          职场
+        </a>
+      
+        <a href="https://xiesz.com/tag/DCo0T6_T_" class="badge secondary">
+          生活思考
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    <a href="https://github.com/XieShangZheng" target="_blank">Autumn</a> | <a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备16047980号-5</a> | <a class="rss" href="https://xiesz.com/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
 
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+    </div>
 
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
+<script type="application/javascript">
 
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
+AOS.init();
+
+hljs.initHighlightingOnLoad()
 
 </script>
 
-      </div>
-    </div>
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'AT',
+      apikey: 'GLcRVRVFrEHw0RwUtuFnJLPR3VI94dSeiI0Jxhr0YJHgfWCs7NmJ1vf9LHH9uWbW',
+    }
+    if ('') {
+      options.api = ''
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
   </body>
 </html>
