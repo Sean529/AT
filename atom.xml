@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiesz.com</id>
     <title>Autumn</title>
-    <updated>2019-12-24T05:55:15.697Z</updated>
+    <updated>2019-12-24T05:58:30.176Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiesz.com"/>
     <link rel="self" href="https://xiesz.com/atom.xml"/>
@@ -49,6 +49,10 @@
         <link href="https://xiesz.com/post/airpods2-zhen-wei-jian-ding">
         </link>
         <updated>2019-12-01T09:39:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>在某鱼选购一款二手耳机，发来的却是假货。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在某鱼选购一款二手耳机，发来的却是假货。</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[react 学习笔记]]></title>
@@ -56,5 +60,9 @@
         <link href="https://xiesz.com/post/react-xue-xi-bi-ji">
         </link>
         <updated>2019-12-01T09:30:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>极客时间的课程学完后做的一点点笔记，其中数据模型对我帮助很大。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>极客时间的课程学完后做的一点点笔记，其中数据模型对我帮助很大。</p>
+]]></content>
     </entry>
 </feed>
